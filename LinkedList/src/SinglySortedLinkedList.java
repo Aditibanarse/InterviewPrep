@@ -31,7 +31,7 @@ public class SinglySortedLinkedList {
 			else
 				p=p.next;
 		}
-		p=new Node(x,p.next);
+		p.next=new Node(x,p.next);
 		System.out.println("Inserted");
 	}
 	
@@ -48,7 +48,7 @@ public class SinglySortedLinkedList {
 			start=start.next;
 			return;
 		}
-		
+
 		Node p=start;
 		while(p.next!=null)
 		{
@@ -59,6 +59,7 @@ public class SinglySortedLinkedList {
 				p.next=p.next.next;
 				break;
 			}
+			p=p.next;
 				
 		}
 		System.out.println("Deleted");
@@ -103,6 +104,30 @@ public class SinglySortedLinkedList {
 				
 			}
 		}
+	
+	public void reverseList()
+	{
+		Node p=start;
+		Node q=p.next;
+		Node temp=q.next;
+		start.next=null;
+
+		System.out.println("Reverse List");
+
+		System.out.println(p.data);
+		System.out.println(q.data);
+		
+		while(q!=null)
+		{
+			temp=q.next;
+			q.next=p;
+			p=q;
+			q=temp;
+		}
+		start=p;
+		System.out.println("start data"+start.data);
+	}
+
 	}
 	
 	
